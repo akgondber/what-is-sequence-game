@@ -1,0 +1,83 @@
+{
+	"name": "what-is-sequence-game",
+	"version": "1.0.0",
+	"license": "MIT",
+	"author": "Rushan Alyautdinov <akgondber@gmail.com>",
+	"homepage": "https://github.com/akgondber/what-is-sequence-game",
+	"repository": "akgondber/what-is-sequence-game",
+	"bin": {
+		"what-is-sequence-game": "dist/cli.js",
+		"sequence-game": "dist/cli.js",
+		"wisg": "dist/cli.js"
+	},
+	"type": "module",
+	"engines": {
+		"node": ">=16"
+	},
+	"scripts": {
+		"build": "babel --out-dir=dist source",
+		"dev": "babel --out-dir=dist --watch source",
+		"test": "prettier --check . && xo && ava",
+		"lint": "xo",
+		"go": "node dist/cli.js",
+		"prettify": "prettier . --write",
+		"xofix": "xo --fix"
+	},
+	"files": [
+		"dist"
+	],
+	"dependencies": {
+		"coloreme": "^1.0.5",
+		"figures": "^6.0.1",
+		"immer": "^10.0.3",
+		"ink": "^4.2.0",
+		"meow": "^12.0.1",
+		"nanoid": "^5.0.6",
+		"node-emoji": "^2.1.3",
+		"radash": "^12.0.0",
+		"react": "^18.2.0",
+		"zustand": "^4.5.1"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.22.5",
+		"@babel/preset-react": "^7.22.5",
+		"ava": "^5.3.0",
+		"chalk": "^5.2.0",
+		"eslint-config-xo-react": "^0.27.0",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"import-jsx": "^5.0.0",
+		"ink-testing-library": "^3.0.0",
+		"prettier": "^2.8.8",
+		"xo": "^0.54.2"
+	},
+	"ava": {
+		"environmentVariables": {
+			"NODE_NO_WARNINGS": "1"
+		},
+		"nodeArguments": [
+			"--loader=import-jsx"
+		]
+	},
+	"xo": {
+		"extends": "xo-react",
+		"prettier": true,
+		"rules": {
+			"react/prop-types": "off"
+		}
+	},
+	"prettier": {
+		"useTabs": true,
+		"semi": true,
+		"singleQuote": true,
+		"quoteProps": "as-needed",
+		"bracketSpacing": false,
+		"arrowParens": "avoid",
+		"trailingComma": "all"
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-react"
+		]
+	}
+}
