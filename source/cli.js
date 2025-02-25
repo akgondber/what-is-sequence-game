@@ -11,6 +11,7 @@ const cli = meow(
 
 		Options
 			--emoji  Use emojis as a sequence items
+			--chars  Use chars as a sequence items
 
 		Examples
 		  $ what-is-sequence-game
@@ -25,8 +26,14 @@ const cli = meow(
 				aliases: ['emoji', 'emojis'],
 				shortFlag: 'e',
 			},
+			chars: {
+				type: 'boolean',
+				default: false,
+				aliases: ['chs', 'chrs', 'char'],
+				shortFlag: 'c',
+			},
 		},
 	},
 );
 
-render(<App emojiMode={cli.flags.emoj} />);
+render(<App emojiMode={cli.flags.emoj} charsMode={cli.flags.chars} />);

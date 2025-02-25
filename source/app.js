@@ -61,7 +61,9 @@ const emojisToShow = [
 	'grin',
 ].map(element => emoji.get(element));
 
-export default function App({emojiMode}) {
+const charsToShow = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
+
+export default function App({emojiMode, charsMode}) {
 	const board = useBoardStore(state => state.board);
 	const shuffledItems = useBoardStore(state => state.shuffledItems);
 	const status = useStatusStore(state => state.status);
@@ -128,7 +130,8 @@ export default function App({emojiMode}) {
 												x: useBoardStore.getState().locX,
 												y: useBoardStore.getState().locY,
 											})
-												? shownItems[shownItems.length - 1]
+												? (emojiMode ? '' : ' ') +
+												  shownItems[shownItems.length - 1]
 												: ' ',
 										)
 										.join(' ')
@@ -156,7 +159,9 @@ export default function App({emojiMode}) {
 	};
 
 	useEffect(() => {
-		setItemsToShow(emojiMode ? emojisToShow : figuresToShow);
+		setItemsToShow(
+			charsMode ? charsToShow : emojiMode ? emojisToShow : figuresToShow,
+		);
 
 		const interval = setInterval(() => {
 			const currentState = useBoardStore.getState();
@@ -194,6 +199,7 @@ export default function App({emojiMode}) {
 		deactivateSingleItem,
 		drawItem,
 		emojiMode,
+		charsMode,
 		incrementCounter,
 		randomize,
 		registerInterval,
@@ -279,7 +285,7 @@ export default function App({emojiMode}) {
 								width={5}
 								height={3}
 							>
-								<Text>{item}</Text>
+								<Text>{(emojiMode ? '' : ' ') + item}</Text>
 							</Box>
 						))}
 					</Box>
@@ -295,7 +301,7 @@ export default function App({emojiMode}) {
 								width={5}
 								height={3}
 							>
-								<Text>{`${userSequence[i]}`}</Text>
+								<Text>{`${emojiMode ? '' : ' '}${userSequence[i]}`}</Text>
 							</Box>
 						))}
 					</Box>
@@ -334,7 +340,7 @@ export default function App({emojiMode}) {
 									width={5}
 									height={3}
 								>
-									<Text>{`${item === figureSet.heart ? ' ' : ''}${item}`}</Text>
+									<Text>{`${emojiMode ? '' : ' '}${item}`}</Text>
 								</Box>
 							))}
 						</Box>
@@ -350,7 +356,9 @@ export default function App({emojiMode}) {
 									width={5}
 									height={3}
 								>
-									<Text>{`${userSequence[i] ?? ''}`}</Text>
+									<Text>{`${emojiMode ? '' : ' '}${
+										userSequence[i] ?? ''
+									}`}</Text>
 								</Box>
 							))}
 						</Box>

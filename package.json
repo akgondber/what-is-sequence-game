@@ -1,6 +1,6 @@
 {
 	"name": "what-is-sequence-game",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"license": "MIT",
 	"author": "Rushan Alyautdinov <akgondber@gmail.com>",
 	"homepage": "https://github.com/akgondber/what-is-sequence-game",
@@ -17,7 +17,7 @@
 	"scripts": {
 		"build": "babel --out-dir=dist source",
 		"dev": "babel --out-dir=dist --watch source",
-		"test": "prettier --check . && xo && ava",
+		"test": "prettier --check . && xo && loadr -- ava",
 		"lint": "xo",
 		"go": "node dist/cli.js",
 		"prettify": "prettier . --write",
@@ -48,6 +48,7 @@
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"import-jsx": "^5.0.0",
 		"ink-testing-library": "^3.0.0",
+		"loadr": "^0.1.1",
 		"prettier": "^2.8.8",
 		"xo": "^0.54.2"
 	},

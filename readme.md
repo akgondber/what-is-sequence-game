@@ -21,15 +21,19 @@ $ what-is-sequence-game --help
 
   Options
     --emoj Use emojis for sequence
+    --chars  Use chars as a sequence items
 
   Examples
     $ what-is-sequence-game
     $ what-is-sequence-game --emoji
+    $ what-is-sequence-game --chars
 ```
 
 ## Demo
 
 ![](media/demo.gif)
+
+![](media/demo-chars.gif)
 
 ## License
 
