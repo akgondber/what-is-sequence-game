@@ -1,4 +1,4 @@
-# what-is-sequence-game
+# what-is-sequence-game [![NPM version][npm-image]][npm-url]
 
 > Remember sequence of appearing items and try to restore them in right order - CLI game
 
